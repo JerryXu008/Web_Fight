@@ -10,6 +10,9 @@ import VueLazyload from 'vue-lazyload'
 // 加载loading插件
 import Loading from './plugin/loading/index'
 
+import MetaInfo from 'vue-meta-info'
+Vue.use(MetaInfo)
+
 Vue.use(VueLazyload, {
   // 可以通过配置loading来设置图片还未加载好之前的占位图片
   loading: require('./assets/images/loading.png')
@@ -27,5 +30,6 @@ Vue.use(Loading, {
 new Vue({
   router,
   store,
-  render: h => h(App)
+  render: h => h(App),
+  mounted: () => document.dispatchEvent(new Event('x-app-rendered'))
 }).$mount('#app')

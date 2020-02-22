@@ -59,10 +59,20 @@ export default {
   },
   all: function (list) {
     return new Promise(function (resolve, reject) {
-      axios.all(list)
-        .then(axios.spread(function (...result) {
+      // axios.all(list)
+      //   .then(axios.spread(function (...result) {
+      //     console.log('>>>>>', result)
+      //     resolve(result)
+      //   }))
+      //   .catch(function (error) {
+      //     reject(error)
+      //   })
+
+      Promise.all(list)
+        .then(function (result) {
+          // console.log('>>>>>', result)
           resolve(result)
-        }))
+        })
         .catch(function (error) {
           reject(error)
         })

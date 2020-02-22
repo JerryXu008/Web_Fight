@@ -1,5 +1,6 @@
 <template>
   <div class="rank">
+    <div class="rank-wrapper">
     <ScrollView>
       <ul class="rank-wrapper">
         <li v-for="(value, key) in category.titles" :key="key">
@@ -27,6 +28,8 @@
         </li>
       </ul>
     </ScrollView>
+    </div>
+
     <transition>
       <router-view></router-view>
     </transition>
@@ -36,8 +39,10 @@
 <script>
 import { getTopList } from '../api/index'
 import ScrollView from '../components/ScrollView'
+import MetaInfo from '../../vue-meta-info'
 export default {
   name: 'Rank',
+  metaInfo: MetaInfo.rank,
   components: {
     ScrollView
   },
@@ -68,85 +73,89 @@ export default {
 <style scoped lang="scss">
   @import "../assets/css/variable";
   @import "../assets/css/mixin";
-  .rank{
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 184px;
-    bottom: 0;
-    @include bg_sub_color();
-    overflow: hidden;
-    .group-title{
-      padding: 10px 20px;
-      box-sizing: border-box;
-      @include font_size($font_large);
-      @include font_color();
-      font-weight: bold;
-    }
-    .normal-group{
-      li{
-        display: flex;
+  .rank {
+    width: 100%;
+    height: 100%;
+    .rank-wrapper {
+      position: fixed;
+      left: 0;
+      right: 0;
+      top: 184px;
+      bottom: 0;
+      @include bg_sub_color();
+      overflow: hidden;
+      .group-title {
         padding: 10px 20px;
         box-sizing: border-box;
-        .item-left{
-          position: relative;
-          img{
-            width: 200px;
-            height: 200px;
-            border-radius: 10px;
-            overflow: hidden;
-          }
-          p{
-            position: absolute;
-            left: 10px;
-            bottom: 10px;
-            @include font_size($font_samll);
-            color: #fff;
-          }
-        }
-        .item-right{
-          margin-left: 20px;
-          @include font_size($font_medium_s);
-          @include font_color();
+        @include font_size($font_large);
+        @include font_color();
+        font-weight: bold;
+      }
+      .normal-group {
+        li {
           display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: flex-start;
-          p{
-            margin: 10px 0;
-            @include no-wrap();
+          padding: 10px 20px;
+          box-sizing: border-box;
+          .item-left {
+            position: relative;
+            img {
+              width: 200px;
+              height: 200px;
+              border-radius: 10px;
+              overflow: hidden;
+            }
+            p {
+              position: absolute;
+              left: 10px;
+              bottom: 10px;
+              @include font_size($font_samll);
+              color: #fff;
+            }
+          }
+          .item-right {
+            margin-left: 20px;
+            @include font_size($font_medium_s);
+            @include font_color();
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            p {
+              margin: 10px 0;
+              @include no-wrap();
+            }
           }
         }
       }
-    }
-    .other-group{
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      li{
-        padding: 10px 20px;
-        box-sizing: border-box;
-        .item-top{
-          position: relative;
-          img{
+      .other-group {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        li {
+          padding: 10px 20px;
+          box-sizing: border-box;
+          .item-top {
+            position: relative;
+            img {
+              width: 200px;
+              height: 200px;
+              border-radius: 10px;
+              overflow: hidden;
+            }
+            p {
+              position: absolute;
+              left: 10px;
+              bottom: 10px;
+              @include font_size($font_samll);
+              color: #fff;
+            }
+          }
+          .item-bottom {
+            @include font_size($font_medium);
+            @include font_color();
             width: 200px;
-            height: 200px;
-            border-radius: 10px;
-            overflow: hidden;
+            @include no-wrap();
           }
-          p{
-            position: absolute;
-            left: 10px;
-            bottom: 10px;
-            @include font_size($font_samll);
-            color: #fff;
-          }
-        }
-        .item-bottom{
-          @include font_size($font_medium);
-          @include font_color();
-          width: 200px;
-          @include no-wrap();
         }
       }
     }

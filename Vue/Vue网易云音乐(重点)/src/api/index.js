@@ -15,6 +15,7 @@ export const getHotArtists = () => {
   return new Promise(function (resolve, reject) {
     Network.get('top/artists?offset=0&limit=5')
       .then(function (result) {
+        console.log('呵呵哒下载了')
         resolve(result.artists)
       })
       .catch(function (err) {
@@ -47,14 +48,19 @@ export const getLetterArtists = (letter) => {
 export const getAllArtists = () => {
   return new Promise(function (resolve, reject) {
     let list = [getHotArtists()]
+
+    // console.log(list)
     let keys = ['热']
     for (let i = 65; i < 91; i++) {
       let letter = String.fromCharCode(i)
       keys.push(letter)
       list.push(getLetterArtists(letter))
     }
+
     Promise.all(list)
+    // Network.all(list)
       .then(function (result) {
+        // console.log('执行几次', result)
         let obj = {}
         obj.keys = keys
         obj.artists = result
