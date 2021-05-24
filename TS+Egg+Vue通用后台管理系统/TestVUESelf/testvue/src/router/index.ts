@@ -4,10 +4,11 @@ import VueRouter, { RouteConfig } from 'vue-router'
 import Register from '../views/Register.vue'
 import Login from '../views/Login.vue'
 import Admin from '../views/Admin.vue'
-import Welcome from '../components/Welcome'
-import Users from '../components/Users'
-import Roles from '../components/Roles'
-import Rights from '../components/Rights'
+import Welcome from '../components/Welcome.vue'
+
+import Users from '../components/Users.vue'
+import Roles from '../components/Roles.vue'
+import Rights from '../components/Rights.vue'
 import Cookies from 'js-cookie'
 
 

@@ -36,3 +36,4 @@ export default class RoleRightsController extends Controller {
         }
     }
 }
+

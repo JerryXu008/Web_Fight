@@ -110,7 +110,7 @@
             
             const userInfo = sessionStorage.getItem('userInfo');
            
-            console.log("admin获取的userInfo的值:",JSON.parse(userInfo))
+           // console.log("admin获取的userInfo的值:",JSON.parse(userInfo))
            
             if(userInfo){
                 this.userInfo = JSON.parse(userInfo);

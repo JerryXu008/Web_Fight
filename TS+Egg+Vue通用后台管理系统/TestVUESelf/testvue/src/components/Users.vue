@@ -317,15 +317,17 @@
 
 
          private exportUsers(){
-            const user = this.tableData.length ? this.tableData[0] : null;
+            const user:any = this.tableData.length ? this.tableData[0] : null;
             const data:any[] = [];
             if(user){
                 const cloumnTitles = Object.keys(user);
                 data.push(cloumnTitles);
                 this.tableData.forEach((user)=>{
-                    const temp:any[] = [];
-                    cloumnTitles.forEach((key)=>{
-                        temp.push(user[key]);
+                    let temp:any[] = [];
+                    
+                    cloumnTitles.forEach((key:string)=>{
+                      let one:any = user[key] as any ;
+                      temp.push(one);
                     });
                     data.push(temp);
                 });

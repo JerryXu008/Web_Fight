@@ -191,7 +191,7 @@
             children: 'children',
             label: 'rightsName'
         };
-         private defaultCheckedKeys = []; // 指定默认选中的权限
+        private defaultCheckedKeys:any[] = []; // 指定默认选中的权限
         private addRightsDialogVisible = false;
         @Ref() readonly tree?: ElTree<any, any>;
         
@@ -199,8 +199,8 @@
 
         private currentRole:any = {};
         private showRightsDialogVisible(role:any){
-            this.addRightsDialogVisible = true;
-            this.defaultCheckedKeys = []; // 清空上一次的默认权限
+             this.addRightsDialogVisible = true;
+             this.defaultCheckedKeys = []; // 清空上一次的默认权限
              this.currentRole = role;
              this.currentRole.rights.forEach((item:any)=>{ // 生成这一次默认权限
                 if(item.level === 2){

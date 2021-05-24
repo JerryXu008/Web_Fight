@@ -19,9 +19,9 @@
 
 <script lang="ts">
     import {Component, Vue, Ref} from 'vue-property-decorator';
-    import NormalForm from '../components/NormalForm'
-    import EmailForm from '../components/EmailForm'
-    import PhoneForm from '../components/PhoneForm'
+    import NormalForm from '../components/NormalForm.vue'
+    import EmailForm from '../components/EmailForm.vue'
+    import PhoneForm from '../components/PhoneForm.vue'
 
     
 
