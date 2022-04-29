@@ -5,7 +5,7 @@
  "author": "Paul Jensen <paul@anephenix.com>",
  "description": "A file explorer application",
  "dependencies": {
-  "async": "^2.1.4",
+  "async": "^2.6.4",
   "lunr": "^0.7.2",
   "osenv": "^0.1.4"
  },
